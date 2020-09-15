@@ -42,9 +42,11 @@ function addBook(title, author, pages, read) {
 addBook('Animal Farm', 'Mark Twain', 300, true)
 
 let displayBooks = function(library) {
-  let bookCard = document.createElement("div");
   let container = document.createElement("div");
-  document.querySelector('body').appendChild(bookCard);
+  let bookCard = document.createElement("div");
+  let mainContainer = document.querySelector('body').appendChild(container);
+  
+  
   for (let book of library) {
     console.log(book)
     bookCard.innerHTML = `
@@ -56,6 +58,7 @@ let displayBooks = function(library) {
       <span class="badge badge-pill badge-light">${book.read}</span>
     </div>
   </div>`
+    mainContainer.appendChild(bookCard);
   }
 }
 
