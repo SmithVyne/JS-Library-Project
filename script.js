@@ -21,6 +21,8 @@ const dummyBooks = [
 
 library = [...dummyBooks];
 
+
+// Book Constructor
 function Book (title, author, pages, read) {
   this.title = title
   this.author = author
@@ -33,41 +35,53 @@ function Book (title, author, pages, read) {
 }
 
 
+function addBook() {
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author').value;
+  const pages = document.getElementById('pages').value;
+  const box = document.querySelector('.card-check');
+  const btnAddbook = document.getElementById('btnAddbook');
 
-function addBook(title, author, pages, read) {
-  let newBook = new Book(title, author, pages, read);
-  library.push(newBook);
+  let read;
+  
+  if (box.checked) {
+    read = true;
+  } else {
+    read = false
+  }
+
+
+  btnAddbook.addEventListener('click', ()=>{
+    let newBook = new Book(title, author, pages, read);
+    console.log(newBook, 'Newbook');
+    library.push(newBook);
+
+    displayBooks(library);
+  })
 }
 
-addBook('Animal Farm', 'Mark Twain', 300, true)
+// addBook('Animal Farm', 'Mark Twain', 300, true)
 
-const displayBooks = function(library) {
+const displayBooks = (library) => {
   let bookContainer = document.querySelector(".book-container");
-    let card = document.getElementById('#card');
-   
-    for (let book of library) {    
+  const card = document.querySelector(".card")
+
+    for(let book of library) {
       bookContainer.innerHTML += `
-      <div class="card my-2 col-xl-3 col-lg-4 col-sm-12 col-md-6 ${toggleCardColor(book, card)}" id="card">
+      <div class="card my-2 col-xl-3 col-lg-4 col-sm-12 col-md-6">
         <div class="card-body">
           <h5 class="card-title book-title">${book.title}</h5>
           <p class="card-text book-author">${book.author}</p>
           <p class="card-text book-pages">${book.pages}</p>
           <p class="card-text d-flex">
-            <input type="checkbox" class="mr-1" id="cardCheck" />  
+            <input type="checkbox" class="card-check" />  
             <span class="pb-2">Read</span>          
           </p>
         </div>
       </div>`
-    }
+    } 
 }
-
-const toggleCardColor = (book, card) => {  
-  if(book.read) {
-    return 'read-book';
-  }
-}
-
-
 
 console.log(library)
 displayBooks(library)
+addBook();
