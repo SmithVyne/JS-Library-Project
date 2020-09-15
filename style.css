@@ -1,0 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  text-align: center;
+  margin: 3% auto;
+}
+
+.bookcard {
+  margin: 0 auto;
+  width: 80%;
+  background-color: lightslategray;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 3%;
+  column-gap: 3%;
+}
+
+.card {
+  background-color: #efefef;
+}
+
+.read-book {
+  background-color: forestgreen;
+}
+
+
+@media screen and (max-width:768px) {
+  .bookcard {
+    display: block;
+  }
+}

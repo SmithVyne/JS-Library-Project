@@ -41,23 +41,32 @@ function addBook(title, author, pages, read) {
 
 addBook('Animal Farm', 'Mark Twain', 300, true)
 
-let displayBooks = function(library) {
-  let bookCard = document.createElement("div");
-  let container = document.createElement("div");
-  document.querySelector('body').appendChild(bookCard);
-  for (let book of library) {
-    console.log(book)
-    bookCard.innerHTML += `
-    <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title book-title">${book.title}</h5>
-      <p class="card-text book-author">${book.author}</p>
-      <p class="card-text book-pages">${book.pages}</p>
-      <span class="badge badge-pill badge-light">${book.read}</span>
-    </div>
-  </div>`
+const displayBooks = function(library) {
+  let bookContainer = document.querySelector(".book-container");
+    let card = document.getElementById('#card');
+   
+    for (let book of library) {    
+      bookContainer.innerHTML += `
+      <div class="card my-2 col-xl-3 col-lg-4 col-sm-12 col-md-6 ${toggleCardColor(book, card)}" id="card">
+        <div class="card-body">
+          <h5 class="card-title book-title">${book.title}</h5>
+          <p class="card-text book-author">${book.author}</p>
+          <p class="card-text book-pages">${book.pages}</p>
+          <p class="card-text d-flex">
+            <input type="checkbox" class="mr-1" id="cardCheck" />  
+            <span class="pb-2">Read</span>          
+          </p>
+        </div>
+      </div>`
+    }
+}
+
+const toggleCardColor = (book, card) => {  
+  if(book.read) {
+    return 'read-book';
   }
 }
+
 
 
 console.log(library)
