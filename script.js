@@ -57,7 +57,6 @@ function addBook() {
     author.value = '';
     pages.value = '';
     read.value = '';
-
   })
 }
 
