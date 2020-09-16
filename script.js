@@ -22,7 +22,6 @@ const dummyBooks = [
 library = [...dummyBooks];
 
 
-// Book Constructor
 function Book (title, author, pages, read) {
   this.title = title
   this.author = author
@@ -36,51 +35,73 @@ function Book (title, author, pages, read) {
 
 
 function addBook() {
-  const title = document.getElementById('title').value;
-  const author = document.getElementById('author').value;
-  const pages = document.getElementById('pages').value;
-  const box = document.querySelector('.card-check');
-  const btnAddbook = document.getElementById('btnAddbook');
-
-  let read;
-  
-  if (box.checked) {
-    read = true;
-  } else {
-    read = false
-  }
-
+  const btnAddbook = document.getElementById("btnAddbook")
 
   btnAddbook.addEventListener('click', ()=>{
-    let newBook = new Book(title, author, pages, read);
-    console.log(newBook, 'Newbook');
-    library.push(newBook);
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const pages = document.getElementById('pages').value;
+    const box = document.querySelector('#check-book');
+    let read;
+    if (box.checked) {
+      read = true;
+    } else {
+      read = false;
+    }
 
+    let newBook = new Book(title, author, pages, read);
+    library.push(newBook);
     displayBooks(library);
+    console.log(read)
   })
 }
 
-// addBook('Animal Farm', 'Mark Twain', 300, true)
 
 const displayBooks = (library) => {
   let bookContainer = document.querySelector(".book-container");
-  const card = document.querySelector(".card")
-
-    for(let book of library) {
+  bookContainer.innerHTML = ""
+  
+    for(let i = 0; i < library.length; i++) {
+      let book = library[i];
       bookContainer.innerHTML += `
       <div class="card my-2 col-xl-3 col-lg-4 col-sm-12 col-md-6">
         <div class="card-body">
           <h5 class="card-title book-title">${book.title}</h5>
           <p class="card-text book-author">${book.author}</p>
           <p class="card-text book-pages">${book.pages}</p>
-          <p class="card-text d-flex">
-            <input type="checkbox" class="card-check" />  
-            <span class="pb-2">Read</span>          
+          <p class="card-text d-flex box-read">
+          <span> Read: ${hasRead(book, i)} </span>
           </p>
+          <button class="btn btn-danger" id="dlt-${i}" onclick="deleteBook(${book}, ${i})">Delete</button>
         </div>
       </div>`
-    } 
+    }
 }
+
+const hasRead = (book, i) => {
+  if (book.read) {
+    return `<span class="badge badge-success" onclick="changeTrue(${i})">True</span>`
+  } else {
+    return `<span class="badge badge-danger" onclick="changeFalse(${i})">False</span>`
+  }
+}
+
+const changeTrue = (i) => {
+  library[i].read = false;
+  displayBooks(library);
+}
+
+const changeFalse = (i) => {
+  library[i].read = true;
+  displayBooks(library);
+}
+
+const deleteBook = ((book, index) => {
+  library.filter((b, i) => {
+    return index != i;
+  });
+});
+
 
 console.log(library)
 displayBooks(library)

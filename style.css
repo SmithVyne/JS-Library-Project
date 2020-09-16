@@ -13,14 +13,11 @@ header {
   margin: 0 auto;
   width: 80%;
   background-color: lightslategray;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  row-gap: 3%;
-  column-gap: 3%;
 }
 
 .card {
   background-color: #efefef;
+  cursor: pointer;
 }
 
 .read-book {
