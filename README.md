@@ -1,6 +1,6 @@
 # My Library
 # JS-Library-Project at Microverse
-Built-with: Javascript
+Built-with: Javascript, HTML, CSS + Bootstrap
 
 # Set-Up instructions.
 * Clone this repository by running `https://github.com/SmithVyne/JS-Library-Project.git` and cd into the directory.
