@@ -101,6 +101,11 @@ const deleteBook = ((i) => {
   displayBooks(library);
 });
 
+const openModal = () => {
+  const formArea = document.querySelector('#formArea');
+  formArea.classList.toggle('d-none');
+}
+
 
 console.log(library)
 displayBooks(library)

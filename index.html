@@ -12,27 +12,27 @@
     <header>
       <h2>Library</h2>
     </header>
-    <div class="book-container row"></div>
+    <div class="book-container row ml-auto mr-auto"></div>
   </section>
 
 
   
   <div class="text-center">
-    <button class="btn-primary" id="openModal">NEW BOOK</button>
+    <button class="btn btn-primary mt-3 mb-3" id="openModalBtn" onclick="openModal()">NEW BOOK</button>
   </div>
 
 
-  <div class="form-area">
+  <div class="w-100 text-center d-none" id="formArea">
     <H2>NEW BOOK</H2>
     <form>
       <input type="text" name="author" placeholder="Author" id="author" />
       <input type="text" name="title" placeholder="Title" id="title" />
       <input type="text" name="pages" placeholder="Pages" id="pages" />
-      <span>
+      <span class="">
         <span>Read?</span>
         <input type="checkbox" id="check-book"/>
       </span>
-      <button type="button" id="btnAddbook" class="d-block">ADD BOOK</button>
+      <button type="button" id="btnAddbook" class="btn btn-primary mr-auto ml-auto mt-3 d-block">ADD BOOK</button>
     </form>
   </div>
 
