@@ -38,9 +38,9 @@ function addBook() {
   const btnAddbook = document.getElementById("btnAddbook")
 
   btnAddbook.addEventListener('click', ()=>{
-    const title = document.getElementById('title').value;
-    const author = document.getElementById('author').value;
-    const pages = document.getElementById('pages').value;
+    const title = document.getElementById('title');
+    const author = document.getElementById('author');
+    const pages = document.getElementById('pages');
     const box = document.querySelector('#check-book');
     let read;
     if (box.checked) {
@@ -49,13 +49,17 @@ function addBook() {
       read = false;
     }
 
-    let newBook = new Book(title, author, pages, read);
+    let newBook = new Book(title.value, author.value, pages.value, read);
     library.push(newBook);
     displayBooks(library);
-    console.log(read)
+
+    title.value = '';
+    author.value = '';
+    pages.value = '';
+    read.value = '';
+
   })
 }
-
 
 const displayBooks = (library) => {
   let bookContainer = document.querySelector(".book-container");
