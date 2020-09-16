@@ -98,7 +98,7 @@ const openModal = () => {
 function addBook() {
   const btnAddbook = document.getElementById('btnAddbook');
 
-  const result = btnAddbook.addEventListener('click', () => {
+  btnAddbook.addEventListener('click', () => {
     const title = document.getElementById('title');
     const author = document.getElementById('author');
     const pages = document.getElementById('pages');
@@ -133,9 +133,9 @@ function addBook() {
     author.value = '';
     pages.value = '';
     read.value = '';
-  });
 
-  return result;
+    return newBook;
+  });
 }
 
 displayBooks(library);
