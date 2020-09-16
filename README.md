@@ -1,23 +1,18 @@
-# JS-Library-Project
+# My Library
+# JS-Library-Project at Microverse
 Built-with: Javascript
 
-# Set-Up instructions
-* Clone this repository by running `git clone https://github.com/SmithVyne/Micro-reddit.git` and cd into the directory
+# Set-Up instructions.
+* Clone this repository by running `https://github.com/SmithVyne/JS-Library-Project.git` and cd into the directory.
+* Open `index.html` in the browser and interact with the application.
 
 
-We created a micro-Reddit application where users can:
+We created a simple Javascript application where users can:
 
-1. Create a user account
-2. Create posts
-3. Comment on different posts. Both of the same user or a different user.
-
-We designed how to structure our model relationships and associations
-We generated a new rails app from the command line.
-We generated models and filled-out migrations
-We ran the migrations to create tables
-We added validations to the models
-We created users and tested these validations in the rails console
-We created our associations and added comments
+1. Add new books they know to the library with a form.
+2. Select whether or not they have read the books.
+3. Update the statuses of the books later if they read them.
+4. Delete books from the Library.
 
 ## Authors
 
