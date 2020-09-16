@@ -24,13 +24,21 @@ header {
   background-color: forestgreen;
 }
 
-/* Form Area */
-
-.form-area {
-  width: 80%;
-  margin: 0 auto;
+.error-field {
+  background-color: tomato;
+  min-height: 3em;
+  width: 40%;
+  color: #fff;
+  border: 2px solid tomato;
+  padding: 12px;
+  position: absolute;
+  text-align: center;
+  top: 10%;
+  right: 4%;
+  z-index: 2;
 }
 
+/* Form Area */
 @media screen and (max-width: 768px) {
   .bookcard {
     display: block;
