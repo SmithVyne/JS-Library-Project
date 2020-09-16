@@ -17,7 +17,7 @@ const dummyBooks = [
     pages: 200,
     read: true,
   },
-]
+];
 
 const library = [...dummyBooks];
 
@@ -34,11 +34,11 @@ function Book(title, author, pages, read) {
 
 const validateBook = (book) => {
   const errors = [];
-  if(book.author === '') {
+  if (book.author === '') {
     errors.push('Book author cannot be empty');
-  } else if(book.title === '') {
+  } else if (book.title === '') {
     errors.push('Book title cannot be empty');
-  } else if(book.pages === '') {
+  } else if (book.pages === '') {
     errors.push('Number of Pages cannot be empty');
   }
 
@@ -93,7 +93,7 @@ const deleteBook = ((i) => {
 const openModal = () => {
   const formArea = document.querySelector('#formArea');
   formArea.classList.toggle('d-none');
-}
+};
 
 function addBook() {
   const btnAddbook = document.getElementById('btnAddbook');
@@ -116,19 +116,18 @@ function addBook() {
     const errorField = document.createElement('div');
 
     if (validationResult.length > 0) {
-      const container = document.querySelector(".container-fluid");
+      const container = document.querySelector('.container-fluid');
       errorField.classList.add('error-field');
 
       validationResult.forEach((err) => {
         errorField.textContent += err;
-      })
-      container.appendChild(errorField, container);
-      return
-    } else {
-      errorField.setAttribute('style', 'display: none;');
-      library.push(newBook);
-      displayBooks(library);
+      });
+      return container.appendChild(errorField);
     }
+
+    errorField.classList.add('d-none');
+    library.push(newBook);
+    displayBooks(library);
 
     title.value = '';
     author.value = '';
