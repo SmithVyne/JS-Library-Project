@@ -72,7 +72,7 @@ const displayBooks = (library) => {
           <p class="card-text d-flex box-read">
           <span> Read: ${hasRead(book, i)} </span>
           </p>
-          <button class="btn btn-danger" id="dlt-${i}" onclick="deleteBook(${book}, ${i})">Delete</button>
+          <button class="btn btn-danger" onclick="deleteBook(${i})">Delete</button>
         </div>
       </div>`
     }
@@ -96,10 +96,9 @@ const changeFalse = (i) => {
   displayBooks(library);
 }
 
-const deleteBook = ((book, index) => {
-  library.filter((b, i) => {
-    return index != i;
-  });
+const deleteBook = ((i) => {
+  library.splice(i, 1);
+  displayBooks(library);
 });
 
 
