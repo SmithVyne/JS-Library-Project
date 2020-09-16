@@ -34,15 +34,65 @@ function Book(title, author, pages, read) {
 
 const validateBook = (book) => {
   const errors = [];
-  if(book.author == '') {
+  if(book.author === '') {
     errors.push('Book author cannot be empty');
-  } else if(book.title == '') {
+  } else if(book.title === '') {
     errors.push('Book title cannot be empty');
-  } else if(book.pages == '') {
-    errors.push('Number of Pages cannot be empty')
+  } else if(book.pages === '') {
+    errors.push('Number of Pages cannot be empty');
   }
 
   return errors;
+};
+
+const hasRead = (book, i) => {
+  if (book.read) {
+    return `<span class="badge badge-success" onclick="changeTrue(${i})">True</span>`;
+  }
+
+  return `<span class="badge badge-danger" onclick="changeFalse(${i})">False</span>`;
+};
+
+
+const displayBooks = (library) => {
+  const bookContainer = document.querySelector('.book-container');
+  bookContainer.innerHTML = '';
+
+  for (let i = 0; i < library.length; i++) {
+    const book = library[i];
+    bookContainer.innerHTML += `
+    <div class="card my-2 col-xl-3 col-lg-4 col-sm-12 col-md-6">
+      <div class="card-body">
+        <h5 class="card-title book-title">${book.title}</h5>
+        <p class="card-text book-author">${book.author}</p>
+        <p class="card-text book-pages">${book.pages}</p>
+        <p class="card-text d-flex box-read">
+        <span> Read: ${hasRead(book, i)} </span>
+        </p>
+        <button class="btn btn-danger" onclick="deleteBook(${i})">Delete</button>
+      </div>
+    </div>`;
+  }
+};
+
+const changeTrue = (i) => {
+  library[i].read = false;
+  displayBooks(library);
+};
+
+const changeFalse = (i) => {
+  library[i].read = true;
+  displayBooks(library);
+};
+
+const deleteBook = ((i) => {
+  library.splice(i, 1);
+  displayBooks(library);
+});
+
+const openModal = () => {
+  const formArea = document.querySelector('#formArea');
+  formArea.classList.toggle('d-none');
 }
 
 function addBook() {
@@ -84,57 +134,8 @@ function addBook() {
     author.value = '';
     pages.value = '';
     read.value = '';
-  })
+  });
 }
 
-const displayBooks = (library) => {
-  let bookContainer = document.querySelector('.book-container');
-  bookContainer.innerHTML = '';
-  
-  for(let i = 0; i < library.length; i++) {
-    let book = library[i];
-    bookContainer.innerHTML += `
-    <div class="card my-2 col-xl-3 col-lg-4 col-sm-12 col-md-6">
-      <div class="card-body">
-        <h5 class="card-title book-title">${book.title}</h5>
-        <p class="card-text book-author">${book.author}</p>
-        <p class="card-text book-pages">${book.pages}</p>
-        <p class="card-text d-flex box-read">
-        <span> Read: ${hasRead(book, i)} </span>
-        </p>
-        <button class="btn btn-danger" onclick="deleteBook(${i})">Delete</button>
-      </div>
-    </div>`;
-  };
-}
-
-const hasRead = (book, i) => {
-  if (book.read) {
-    return `<span class="badge badge-success" onclick="changeTrue(${i})">True</span>`;
-  } else {
-    return `<span class="badge badge-danger" onclick="changeFalse(${i})">False</span>`;
-  }
-}
-
-const changeTrue = (i) => {
-  library[i].read = false;
-  displayBooks(library);
-}
-
-const changeFalse = (i) => {
-  library[i].read = true;
-  displayBooks(library);
-}
-
-const deleteBook = ((i) => {
-  library.splice(i, 1);
-  displayBooks(library);
-});
-
-const openModal = () => {
-  const formArea = document.querySelector('#formArea');
-  formArea.classList.toggle('d-none');
-}
-
-displayBooks(library)
+displayBooks(library);
 addBook();
