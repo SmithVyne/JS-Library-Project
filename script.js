@@ -21,16 +21,14 @@ const dummyBooks = [
 
 const library = [...dummyBooks];
 
-const Book = (title, author, pages, read) => {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-
-  this.info = function () {
-    return `${title} ${author} ${pages} ${read}`;
-  };
-};
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+}
 
 const hasRead = (book, i) => {
   if (book.read) {
@@ -120,11 +118,16 @@ const validation = (newBook) => {
   return true;
 };
 
-const addBook = () => {
+const fieldValues = () => {
   const title = document.getElementById('title');
   const author = document.getElementById('author');
   const pages = document.getElementById('pages');
   const box = document.querySelector('#check-book');
+  return [title, author, pages, box];
+};
+
+const addBook = () => {
+  const [title, author, pages, box] = fieldValues();
   const read = !!box.checked;
 
   const newBook = new Book(title.value, author.value, pages.value, read);
