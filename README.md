@@ -14,6 +14,9 @@ We created a simple Javascript application where users can:
 3. Update the statuses of the books later if they read them.
 4. Delete books from the Library.
 
+## Live Link
+[Link to Demo](https://myjslibrary.netlify.app/)
+
 ## Authors
 
 👤 **Smith Nkereuwem**
