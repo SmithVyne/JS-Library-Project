@@ -17,6 +17,9 @@ header {
 
 .card {
   background-color: #efefef;
+}
+
+.badge {
   cursor: pointer;
 }
 
