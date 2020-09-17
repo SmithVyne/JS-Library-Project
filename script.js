@@ -21,7 +21,7 @@ const dummyBooks = [
 
 const library = [...dummyBooks];
 
-function Book(title, author, pages, read) {
+const Book = (title, author, pages, read) => {
   this.title = title;
   this.author = author;
   this.pages = pages;
@@ -30,7 +30,7 @@ function Book(title, author, pages, read) {
   this.info = function () {
     return `${title} ${author} ${pages} ${read}`;
   };
-}
+};
 
 const hasRead = (book, i) => {
   if (book.read) {
@@ -65,20 +65,20 @@ const displayBooks = (library) => {
   }
 };
 
-const changeTrue = (i) => {
+const changeTrue = i => {
   library[i].read = false;
   displayBooks(library);
 };
 
-const changeFalse = (i) => {
+const changeFalse = i => {
   library[i].read = true;
   displayBooks(library);
 };
 
-const deleteBook = ((i) => {
+const deleteBook = i => {
   library.splice(i, 1);
   displayBooks(library);
-});
+};
 
 const openModal = () => {
   const formArea = document.querySelector('#formArea');
@@ -120,7 +120,7 @@ const validation = (newBook) => {
   return true;
 };
 
-function addBook() {
+const addBook = () => {
   const title = document.getElementById('title');
   const author = document.getElementById('author');
   const pages = document.getElementById('pages');
@@ -135,6 +135,6 @@ function addBook() {
   displayBooks(library);
   resetForm(title, author, pages, box);
   return newBook;
-}
+};
 
 displayBooks(library);
