@@ -1,0 +1,24 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "Built-with: Javascript, HTML, CSS + Bootstrap",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "./node_modules/.bin/eslint ./script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SmithVyne/JS-Library-Project.git"
+  },
+  "keywords": [],
+  "author": "Smith Nkereuwem & Ezaka Alfred",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SmithVyne/JS-Library-Project/issues"
+  },
+  "homepage": "https://github.com/SmithVyne/JS-Library-Project#readme",
+  "devDependencies": {
+    "eslint": "^7.9.0"
+  }
+}

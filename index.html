@@ -3,10 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css" />
   <title>JS-Library-Project</title>
 </head>
 <body>
+  <section class="container-fluid">
+    <div class="errors"></div>
+    <header>
+      <h2>Library</h2>
+    </header>
+    <div class="book-container row ml-auto mr-auto"></div>
+  </section>
   
-  <script src="script.js"></script>
+  <div class="text-center">
+    <button class="btn btn-primary mt-3 mb-3" id="openModalBtn" onclick="openModal()">NEW BOOK</button>
+  </div>
+
+
+  <div class="w-100 text-center d-none" id="formArea">
+    <H2>NEW BOOK</H2>
+    <form>
+      <input type="text" name="author" placeholder="Author" id="author" />
+      <input type="text" name="title" placeholder="Title" id="title" />
+      <input type="text" name="pages" placeholder="Pages" id="pages" />
+      <span class="">
+        <span>Read?</span>
+        <input type="checkbox" id="check-book"/>
+      </span>
+      <button type="button" id="btnAddbook" class="btn btn-primary mr-auto ml-auto mt-3 d-block" onclick="addBook()">ADD BOOK</button>
+    </form>
+  </div>
+
+
+  <script src="./script.js"></script>
 </body>
 </html>
